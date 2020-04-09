@@ -1,0 +1,29 @@
+﻿<Window x:Class="TimsLab2WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TimsLab2WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="237" Width="264.666">
+    <Grid Margin="0,0,3.667,0">
+        <Label Content="alfa" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="a" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <Label Content="sigma" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+        <Label Content="df" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+        <Label Content="Xe" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
+        <Label Content="Xcr" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Alfa}" VerticalAlignment="Top" Width="67" Margin="71,13,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding A}" VerticalAlignment="Top" Width="67" Margin="71,44,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Sigma}" VerticalAlignment="Top" Width="67" Margin="71,75,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Df}" VerticalAlignment="Top" Width="67" Margin="71,106,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Xe}" VerticalAlignment="Top" Width="67" Margin="71,137,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Xcr}" VerticalAlignment="Top" Width="67" Margin="71,168,0,0"/>
+        <Button Content="Calculate" HorizontalAlignment="Left" Margin="162,170,0,0" VerticalAlignment="Top" Width="75" Command="{Binding CalculateCommand}"/>
+        <Label Content="Result" HorizontalAlignment="Left" Margin="162,10,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="72" TextWrapping="Wrap" Text="{Binding Result}" VerticalAlignment="Top" Width="82" Margin="162,44,0,0"/>
+
+
+
+    </Grid>
+</Window>
