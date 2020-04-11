@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.IO;
 using MathNet.Numerics;
 using System.Windows.Input;
+using System.Windows;
 
 namespace TimsLab2WPF
 {
@@ -176,7 +177,18 @@ namespace TimsLab2WPF
             int freqToAdd = 0;
             for (int i = 0; i < intervals.Count; i++)
             {
-                npiToAdd += ((MathNet.Numerics.Distributions.Normal.CDF((double)A, (double)Sigma, intervals[i].Item2) - MathNet.Numerics.Distributions.Normal.CDF((double)A, (double)Sigma, intervals[i].Item1)) * n);
+                if(i == 0)
+                {
+                    npiToAdd += ((MathNet.Numerics.Distributions.Normal.CDF((double)A, (double)Sigma, intervals[i].Item2)) * n);
+                }
+                else if(i==intervals.Count - 1)
+                {
+                    npiToAdd += ((1 - MathNet.Numerics.Distributions.Normal.CDF((double)A, (double)Sigma, intervals[i].Item1)) * n);
+                }
+                else
+                {
+                    npiToAdd += ((MathNet.Numerics.Distributions.Normal.CDF((double)A, (double)Sigma, intervals[i].Item2) - MathNet.Numerics.Distributions.Normal.CDF((double)A, (double)Sigma, intervals[i].Item1)) * n);
+                }
                 freqToAdd += freaquencies[i];
                 if (npiToAdd >= 10)
                 {
@@ -210,17 +222,18 @@ namespace TimsLab2WPF
         {
             if(Xe <= Xcr)
             {
-                Result = "Accept the hypotesis";
+                Result = $"Accept the hypotesis \nnpiSum: {npi.Sum()}";
             }
             else
             {
-                Result = "Reject the hypotesis";
+                Result = $"Reject the hypotesis \nnpiSum: {npi.Sum()}";
             }
         }
         
         public void Calculate(object o)
         {
             ParceData();
+            Df = 0;
             if (A == null)
             {
                 CalculateA();
@@ -233,6 +246,7 @@ namespace TimsLab2WPF
             CalculateXcr();
             CalculateXe();
             PrintRes();
+            
         }
     }
 }
